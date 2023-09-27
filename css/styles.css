@@ -46,11 +46,19 @@ body {
     list-style: none;
 }
 
-.hide {
-    visibility: hidden;
-    margin: 0;
-    width: 10px;
-} 
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
 
 img {
     display: block;
@@ -102,12 +110,15 @@ img {
     margin-left: auto;
 }
 
-.contact-list .item:not(:first-child){
-    margin-left: 40px;
+.contact-list .item:not(:last-child){
+    margin-right: 30px;
 }
 
 .contact-list .link,
 .contact-list .tel {
+    display: flex;
+    align-items: center;
+
     color: var(--primary-text-color);
     
     font-size: 14px;
@@ -116,13 +127,25 @@ img {
     text-decoration: none;
 }
 
+.tel-icon {
+    margin-right: 10px;
+   
+    fill: currentColor;
+}
+
+.link-icon {
+    margin-right: 10px;
+
+    fill: currentColor;
+}
+
 .nav-list .link:focus ,
 .nav-list .link:hover,
 .contact-list .link:focus,
 .contact-list .link:hover,
 .contact-list .tel:focus,
 .contact-list .tel:hover {
-    color: var(--accenr-color);
+    color: var(--accenr-color);   
 }
 
 .nav-list .link.current {
@@ -136,8 +159,18 @@ header {
 /*page studio start*/
 
 .main.section {
+    max-width: 1600px;
+    height: 600px;
+    margin-left: auto;
+    margin-right: auto;
     padding-top: 200px;
     padding-bottom: 200px;
+
+    background-color: rgba(196, 196, 196, 1);
+    background-image: linear-gradient(
+        to right, rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)
+        ),
+    url(../images/banner.jpg)
 }
 
 .section {
@@ -217,8 +250,13 @@ header {
     margin-right: 30px;
 }
 
+
+
 /*works*/
 
+.works {
+    padding-top: 0;
+}
 
 .section-title {
     margin-top: 0;
@@ -232,6 +270,15 @@ header {
     font-size: 36px;
     line-height: 1.17;
 }
+
+.icon-bg {
+    height: 120px;
+    margin-bottom: 30px;
+    padding: 25px 100px;
+    border-radius: 4px;
+    background-color: var(--bcg-secondary-gray-color);
+}
+
 
 /*team*/
 
@@ -271,10 +318,11 @@ header {
 
 .team-content {
     padding-top: 30px;
-    padding-bottom: 30px;
+    
 }
 
 .team .subtitle {
+    margin-bottom: 10px;
     text-align: center;
 
     color: var(--primary-title-color);
@@ -285,25 +333,46 @@ header {
 }
 
 .team-list p {
+    margin: 0;
     text-align: center;
+}
+
+.social {
+    display: flex;
+    padding: 16px 32px 30px;  
+    justify-content: space-between;
+}
+
+.team-list .social-link {
+    width: 44px;
+    height: 44px;
+    padding: 12px;
+    fill: rgba(175, 177, 184, 1);
+}
+
+.social-el:not(:last-child) {
+    margin-right: 10px;
+}
+
+
+.team-list .social-link:hover,
+.team-list .social-link:focus {
+    border-radius: 50%;
+    background-color: var(--accenr-color);
+    fill: var(--primary-white-color);
 }
 /*page studio end*/
 
 /*page portfolio start*/
 
-.section .container {
-    flex-direction: column;
-}
-
 /*button filter*/
 
 .btn-list {
     display: flex;
-   
+    justify-content: center;
 }
 
 .btn {
-    display: inline-block;
     padding: 6px 22px;
     border: none;
     border-radius: 4px;
@@ -331,7 +400,7 @@ margin-right: 8px;
 .portfolio-list {
     display: flex;
     flex-wrap: wrap;
-    margin-top: 40px;
+    margin-top: 50px;
 
     list-style: none;  
 }
@@ -357,7 +426,7 @@ margin-right: 8px;
 
 .card-border {
     padding:20px 24px 20px 24px;
-    border: solid;
+    border-style: solid;
     border-width: 0 1px 1px 1px;
     border-color: var(--bg-card);
 }
@@ -406,8 +475,7 @@ footer {
 .footer-address {
     margin-top: 28px;
     margin-right: auto;
-    width: 207px;
-
+    
     color: var(--primary-white-color);
     font-size: 14px;
     font-style: normal;
@@ -417,7 +485,7 @@ footer {
     margin-top: 12px;
 }
 
-.footer-list .item {
+.footer-list .item:not(:first-child) {
     margin-top: 12px;
 }
 .footer-list .link,
