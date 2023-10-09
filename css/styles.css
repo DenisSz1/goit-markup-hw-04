@@ -273,10 +273,14 @@ header {
 }
 
 .icon-bg {
+    display: flex;
     height: 120px;
     margin-bottom: 30px;
-    padding: 25px 100px;
+    justify-content: center;
+    align-items: center;
+
     border-radius: 4px;
+    
     background-color: var(--bcg-secondary-gray-color);
 }
 
@@ -321,6 +325,7 @@ header {
 
 .team-content {
     padding-top: 30px;
+    padding-bottom: 30px;
     
 }
 
@@ -336,24 +341,29 @@ header {
 }
 
 .team-list p {
-    margin: 0;
+    margin: 0 0 16px 0;
     text-align: center;
 }
 
 .social {
     display: flex;
-    padding: 16px 32px 30px;  
-    justify-content: space-between;
+    padding: 0;
+    justify-content: center;
+
+    list-style: none;
 }
 
 .team-list .social-link {
+    display: flex;
     width: 44px;
     height: 44px;
-    padding: 12px;
+    justify-content: center;
+    align-items: center;
+    
     fill: var(--border-color);
 }
 
-.social-el:not(:last-child) {
+.team-list .social-item:not(:last-child) {
     margin-right: 10px;
 }
 
@@ -374,11 +384,10 @@ header {
     margin-right: 30px;
 }
 
-.client-bg {
+.client-link {
     display: flex;
     width: 170px;
     height: 92px;
-    padding: 16px 32px;
     justify-content: center;
     align-items: center;
 
@@ -388,10 +397,11 @@ header {
     fill: var(--border-color);
 }
 
-.client-bg:hover,
-.client-bg:focus {
+
+.client-link:hover,
+.client-link:focus {
     fill: var(--accent-color);
-    border-color: var(--accent-color);
+    border: 1px solid var(--accent-color);
 }
 
 /*page studio end*/
@@ -454,8 +464,8 @@ margin-right: 8px;
     margin-bottom: 0;
 }
 
-.portfolio-list .card:hover,
-.portfolio-list .card:focus {
+.portfolio-list .link:hover,
+.portfolio-list .link:focus {
     box-shadow: 1px 4px 6px 0px rgba(0, 0, 0, 0.16);
 }
 
@@ -504,7 +514,7 @@ footer {
 
 .footer {
     display: flex;
-    flex-wrap: wrap;
+    align-items: baseline;
 }
 
 .first-block {
@@ -540,10 +550,6 @@ footer {
     text-decoration: none;
 }
 
-.secondary-block {
-    padding-top: 12px;
-}
-
 .secondary-block .title {
     margin: 0 90px 20px 0;
 
@@ -560,10 +566,13 @@ footer {
     margin-right: 10px;
 }
 
-.ft-list .item {
+.ft-list .social-link {
+    display: flex;
     width: 44px;
     height: 44px;
-    padding: 12px;
+    justify-content: center;
+    align-items: center;
+
     border-radius: 50%;
 
     background-color: var(--social-bg);
@@ -573,7 +582,7 @@ footer {
     fill: var(--primary-white-color);
 }
 
-.ft-list .item:hover,
-.ft-list .item:focus {
+.ft-list .social-link:hover,
+.ft-list .social-link:focus {
     background-color: var(--accent-color);
 }
